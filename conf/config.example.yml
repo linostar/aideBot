@@ -7,3 +7,6 @@ realname: AideBot
 nspass: coolpass
 # Be sure to put the channel name inside quotes
 channel: "#AideBot"
+
+## Bot settings
+helpcommand : "!help"

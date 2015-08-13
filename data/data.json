@@ -4,6 +4,6 @@
 	"command1": "help for command1",
 	"command2": {
 		"subcommand1": "help for command2 subcommand1",
-		"subcommand2": "help for command2 subcommand2",
-	},
+		"subcommand2": "help for command2 subcommand2"
+	}
 }

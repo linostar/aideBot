@@ -10,8 +10,8 @@ class Data:
 		self.read_data()
 
 	def read_data(self):
-		if not os.path.exists(DATA_JSON_FILE):
+		if not os.path.exists(self.DATA_JSON_FILE):
 			print('Error: data.json could not be found.')
 			sys.exit(1)
-		with open(DATA_JSON_FILE, 'r') as data_fp:
+		with open(self.DATA_JSON_FILE, 'r') as data_fp:
 			self.topics = json.load(data_fp)

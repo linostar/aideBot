@@ -29,15 +29,16 @@ from aidelib import data_processing
 
 
 class CustomConnection(irc.client.ServerConnection):
-	def privmsg(self, target, text):
-		flood_event = schedule.Schedule.get_event()
-		flood_event.wait()
-		super().privmsg(target, text)
+	pass
+	# def privmsg(self, target, text):
+	# 	flood_event = schedule.Schedule.get_event()
+	# 	flood_event.wait()
+	# 	super().privmsg(target, text)
 
-	def notice(self, target, text):
-		flood_event = schedule.Schedule.get_event()
-		flood_event.wait()
-		super().notice(target, text)
+	# def notice(self, target, text):
+	# 	flood_event = schedule.Schedule.get_event()
+	# 	flood_event.wait()
+	# 	super().notice(target, text)
 
 
 class CustomReactor(irc.client.Reactor):
@@ -66,6 +67,8 @@ class AideBot(CustomSingleServerIRCBot):
 	def __init__(self, config_file):
 		self.read_config(config_file)
 		self.data = data_processing.Data()
+		CustomSingleServerIRCBot.__init__(self, [(self.config['server'], self.config['port'])],
+		self.config['nick'], self.config['realname'])
 
 	def read_config(self, filename):
 		if not os.path.exists(filename):
@@ -78,11 +81,6 @@ class AideBot(CustomSingleServerIRCBot):
 		if self.config['nspass']:
 			self.connection.privmsg("nickserv", "identify {}".format(self.config['nspass']))
 		c.join(self.config['channel'])
-
-
-class DetectedCommand(Exception):
-	# dummy custom Exception, used for simplifying parsing commands
-	pass
 
 
 def main():
