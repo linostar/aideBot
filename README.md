@@ -1,9 +1,6 @@
 # AideBot
 A Universal IRC Help Bot
 
-## Prerequisites in IRC environment
-ZombireBot works properly if run on Rizon IRC network. It would also work on other IRC networks that use Anope services.
-
 ## How to Install
 1. You need `Python3` and `pip3` installed on your system.
 
