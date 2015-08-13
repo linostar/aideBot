@@ -2,8 +2,12 @@
 	"topic1": "help for topic1 here",
 	"topic2": "help for topic2 here",
 	"command1": "help for command1",
-	"command2": {
-		"subcommand1": "help for command2 subcommand1",
-		"subcommand2": "help for command2 subcommand2"
+	"Command2": {
+		"Subcommand1": "help for Command2 Subcommand1",
+		"subcommand2": "help for Command2 subcommand2"
+	},
+	"command3": {
+		"": "help for command3",
+		"subcommand": "help for command3 subcommand"
 	}
 }
