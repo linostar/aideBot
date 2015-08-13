@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Aidebot by linostar</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Aidebot</h1>
+        <p>A Universal IRC Help Bot</p>
+        <p class="view"><a href="https://github.com/linostar/aideBot">View the Project on GitHub <small>linostar/aideBot</small></a></p>
+        <ul>
+          <li><a href="https://github.com/linostar/aideBot/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/linostar/aideBot/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/linostar/aideBot">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="aidebot" class="anchor" href="#aidebot" aria-hidden="true"><span class="octicon octicon-link"></span></a>AideBot</h1>
+
+<p>AideBot is a universal IRC help bot. When a user write (in public message or private message to the bot) a <code>!help</code> or a <code>!help topic</code>, the bot will respond with the appropriate line from a JSON file, where help data is stored.</p>
+
+<p>The <code>!help</code> command itself can be customized and changed to something else by modifying <code>helpcommand</code> entry in the <code>conf/config.yml</code> file.</p>
+
+<h2>
+<a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to Install</h2>
+
+<ol>
+<li><p>You need <code>Python3</code> and <code>pip3</code> installed on your system.</p></li>
+<li><p>Run: <code>pip3 install -r requirements.txt</code></p></li>
+<li><p>Register the bot nick on the IRC network you want it to run on.</p></li>
+<li><p>Copy <code>conf/config.example.yml</code> to <code>conf/config.yml</code> and change the configuration parameters according to your needs.</p></li>
+<li><p>Finally, run: <code>python3 aidebot.py</code> and enjoy!</p></li>
+</ol>
+
+<h2>
+<a id="how-to-add-data-to-the-bot" class="anchor" href="#how-to-add-data-to-the-bot" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to add data to the bot</h2>
+
+<p>Open <code>data/data.json</code> with a text editor (or a JSON editor) and enter your help data there in JSON format. The file contains few sample data lines by default to demonstrate how simple topic/command help data and complex command help data should look like.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/linostar">linostar</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
