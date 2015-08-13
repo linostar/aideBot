@@ -1,13 +1,86 @@
 {
-	"topic1": "help for topic1 here",
-	"topic2": "help for topic2 here",
-	"command1": "help for command1",
-	"Command2": {
-		"Subcommand1": "help for Command2 Subcommand1",
-		"subcommand2": "help for Command2 subcommand2"
+	"register": "For registering in the current round (or in a new round)",
+	"unregister": "For removing oneself from the current round",
+	"status": "Syntax: !status [player]. For checking the stats of a player, or yourself",
+	"attack": "Syntax: !attack player. For attacking enemies of the other type",
+	"heal": "Syntax: !heal player. For healing allies from the same type",
+	"ambush": "Syntax: !ambush player1 player2. For attacking two enemies simultaneously",
+	"challenge": "For attacking the enemy's leader (Dracula or Zombilo) if he's present in the battlefield",
+	"auto": {
+		"": "Used for displaying/saving player settings",
+		"register": "Syntax: !auto register off|on. It allows auto registering if turned on",
+		"attack": "Syntax: !auto attack off|lowest|highest. It allows auto-attacking the enemy with lowest/highest HP once per hour",
+		"heal": "Syntax: !auto heal off|lowest|highest. It allows auto-healing the ally with lowest/highest HP once per hour",
+		"search": "Syntax: !auto search off|on. It allows auto searching for items once per hour if turned on"
 	},
-	"command3": {
-		"": "help for command3",
-		"subcommand": "help for command3 subcommand"
+	"search": "For finding a random item. The chance is 25%",
+	"use": "Syntax: !use number [target]. It will use the specified item on the player itself or on the target",
+	"drop": "Syntax: !drop number. It will drop the specified item from the inventory",
+	"inventory": "It will list all the items in the player inventory (max. capacity is 3)",
+	"chest": {
+		"open": "It will open the chest and add the ore inside to the forge, unless it contains a bomb",
+		"drop": "It will drop the chest without opening it"
+	},
+	"forge": {
+		"": "It will list the contents of the forge (max. capacity is 4)",
+		"drop": "Syntax: !forge drop number. It will drop the specified ore from the forge"
+	},
+	"upgrade": {
+		"sword": "It will upgrade the sword if the nessary ores are in the forge",
+		"armor": "It will upgrade the armor if the nessary ores are in the forge"
+	},
+	"Settings": "See !help auto",
+	"Scoring": "The player will get 1 score point for healing, 2 for successful attack, 3 for successful ambush, 5 for finishing off an enemy, and 10 for a successful challenge",
+	"Leaders": "Count Dracula and General Zombila will make an appearance each once a day, substantially boosting their soldiers' power in the 15 minutes in which they appear",
+	"Bonus": "Once every 3 hours, few players may find something that boost their stats, up or down, temporarily for 1 hour",
+	"Stats": {
+		"HP": "Health Points (they have no maximum limit per player)",
+		"MP": "Those points represent how many remaining actions the player can do in the current hour",
+		"Score": "Score points awarded for healings and successful attacks",
+		"Bonus": "If present, it will give a positive or negative boost to the player's attack/defense",
+		"Equipment": "Sword and armor equipped by the player"
+	},
+	"Items": {
+		"": "Those items can be found when using !search command, they are stored in his/her inventory",
+		"small apple": "Adds 2 HP to the player stats",
+		"medium apple": "Adds 5 HP to the player stats",
+		"large apple": "Adds 10 HP to the player stats",
+		"small lemon": "Adds 1 MP to the player stats",
+		"medium lemon": "Adds 2 MP to the player stats",
+		"large lemon": "Adds 3 MP to the player stats",
+		"Transformic": "Tranforms the player to the opposite type without affecting his/her stats",
+		"Explodic": "Suicidal attack (renders the HP of the user and the target to 1)",
+		"Neutralic": "Removes any bonus effect of a particular player",
+		"Switchic": "Switches the HP stats between player and target (consumes the full MP of the player)",
+		"Drainic": "Sacrifices 1 MP to decrease the target's HP by 5",
+		"Revealic": "Reveals the inventory contents of the target",
+		"Thievic": "Steals a random item from the target (if the target has any)",
+		"Summonic": "Sacrifices 20 HP to summon the player's leader for 15 minutes",
+		"Maintainic": "Increases the lifespan of a sword or an armor by 20"
+	},
+	"Chests": "There is a chance a chest will appear after a !attack, !heal, or !ambush command",
+	"Ores": {
+		"": "There are 7 types of ores that may be found in chests",
+		"Copper": "3 ores of Copper can upgrade a Wooden sword to a Copper sword",
+		"Steel": "3 ores of Steel can upgrade a Copper sword to a Steel sword",
+		"Titanium": "3 ores of Titanium can upgrade a Steel sword to a Titanium sword",
+		"Quartz": "3 ores of Quartz can upgrade a Wooden armor to a Quartz armor",
+		"Sapphire": "3 ores of Sapphire can upgrade a Quartz armor to a Sapphire armor",
+		"Diamond": "3 ores of Diamond can upgrade a Sapphire armor to a Diamond armor",
+		"Bomb": "Inflict up to 5 HP damage on the player"
+	},
+	"Swords": {
+		"": "A sword can help increase the damage in case of a successful attack/defense",
+		"Wooden": "Level 0 sword (unbreakable)",
+		"Copper": "Level 1 sword",
+		"Steel": "Level 2 sword",
+		"Titanium": "Level 3 sword"
+	},
+	"Armors": {
+		"": "An armor can help reduce the damage in case of a failed attack/defense",
+		"Wooden": "Level 0 armor (unbreakable)",
+		"Quartz": "Level 1 armor",
+		"Sapphire": "Level 2 armor",
+		"Diamond": "Level 3 armor"
 	}
 }
