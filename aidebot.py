@@ -25,6 +25,8 @@ import yaml
 import irc.client
 import irc.bot
 
+from aidelib import data_processing
+
 
 class CustomConnection(irc.client.ServerConnection):
 	def privmsg(self, target, text):
@@ -60,13 +62,14 @@ class CustomSingleServerIRCBot(irc.bot.SingleServerIRCBot, CustomSimpleIRCClient
 		irc.bot.SingleServerIRCBot.__init__(self, server_list, nickname, realname, reconnection_interval=60)
 
 
-class Aide(CustomSingleServerIRCBot):
+class AideBot(CustomSingleServerIRCBot):
 	def __init__(self, config_file):
 		self.read_config(config_file)
+		self.data = data_processing.Data()
 
 	def read_config(self, filename):
 		if not os.path.exists(filename):
-			print('Error: config.yml cannot be found.')
+			print('Error: config.yml could not be found.')
 			sys.exit(1)
 		with open(filename, 'r') as config_fd:
 			self.config = yaml.load(config_fd)
@@ -84,7 +87,7 @@ class DetectedCommand(Exception):
 
 def main():
 	print("AideBot is running. To stop the bot, press Ctrl+C.")
-	bot = Aide("conf/config.yml")
+	bot = AideBot("conf/config.yml")
 	bot.start()
 
 if __name__ == "__main__":
