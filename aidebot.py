@@ -25,20 +25,19 @@ import yaml
 import irc.client
 import irc.bot
 
-from aidelib import data_processing
+from aidelib import data_processing, flood_control
 
 
 class CustomConnection(irc.client.ServerConnection):
-	pass
-	# def privmsg(self, target, text):
-	# 	flood_event = schedule.Schedule.get_event()
-	# 	flood_event.wait()
-	# 	super().privmsg(target, text)
+	def privmsg(self, target, text):
+		flood_event = flood_control.FloodControl.get_event(1)
+		flood_event.wait()
+		super().privmsg(target, text)
 
-	# def notice(self, target, text):
-	# 	flood_event = schedule.Schedule.get_event()
-	# 	flood_event.wait()
-	# 	super().notice(target, text)
+	def notice(self, target, text):
+		flood_event = flood_control.FloodControl.get_event(1)
+		flood_event.wait()
+		super().notice(target, text)
 
 
 class CustomReactor(irc.client.Reactor):
@@ -64,9 +63,13 @@ class CustomSingleServerIRCBot(irc.bot.SingleServerIRCBot, CustomSimpleIRCClient
 
 
 class AideBot(CustomSingleServerIRCBot):
+	channel = ""
+
 	def __init__(self, config_file):
 		self.read_config(config_file)
+		self.channel = self.config['channel']
 		self.data = data_processing.Data()
+		self.flood = flood_control.FloodControl()
 		CustomSingleServerIRCBot.__init__(self, [(self.config['server'], self.config['port'])],
 		self.config['nick'], self.config['realname'])
 
@@ -80,7 +83,7 @@ class AideBot(CustomSingleServerIRCBot):
 	def on_welcome(self, c, e):
 		if self.config['nspass']:
 			self.connection.privmsg("nickserv", "identify {}".format(self.config['nspass']))
-		c.join(self.config['channel'])
+		c.join(self.channel)
 
 
 def main():
