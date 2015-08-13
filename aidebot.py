@@ -116,8 +116,9 @@ class AideBot(CustomSingleServerIRCBot):
 
 	def execute(self, source, command):
 		if not command:
-			self.connection.privmsg(source, "Help is available for the following topics/commands:")
-			self.connection.privmsg(source, ", ".join(sorted(self.data.topics.keys())))
+			self.connection.privmsg(source, "Help is available for the following topics/commands:", 10)
+			self.connection.privmsg(source, "\x02{}\x02".format(", ".join(
+				sorted(self.data.topics.keys()))), 10)
 			return
 		first_space = command.find(" ")
 		if first_space == -1:
@@ -150,7 +151,7 @@ class AideBot(CustomSingleServerIRCBot):
 
 
 def main():
-	print("AideBot is running. To stop the bot, press Ctrl+C.")
+	print("AideBot is running. To stop the bot, press Ctrl+C twice.")
 	bot = AideBot("conf/config.yml")
 	bot.start()
 
