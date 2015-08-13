@@ -72,14 +72,14 @@
 		"Bomb": "Inflict up to 5 HP damage on the player"
 	},
 	"Swords": {
-		"": "A sword can help increase the damage in case of a successful attack/defense",
+		"": "A sword can help increase the damage in case of a successful attack/defense. It has lifespan (if not wooden) and will break when lifespan reaches zero, in which case the player goes back to using the Wooden sword",
 		"Wooden": "Level 0 sword (unbreakable)",
 		"Copper": "Level 1 sword",
 		"Steel": "Level 2 sword",
 		"Titanium": "Level 3 sword"
 	},
 	"Armors": {
-		"": "An armor can help reduce the damage in case of a failed attack/defense",
+		"": "An armor can help reduce the damage in case of a failed attack/defense. It has lifespan (if not wooden) and will break when lifespan reaches zero, in which case the player goes back to using the Wooden armor",
 		"Wooden": "Level 0 armor (unbreakable)",
 		"Quartz": "Level 1 armor",
 		"Sapphire": "Level 2 armor",
