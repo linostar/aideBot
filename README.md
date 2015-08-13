@@ -1,5 +1,5 @@
 # AideBot
-A Universal IRC Help Bot
+A Universal IRC Help Bot.
 
 ## How to Install
 1. You need `Python3` and `pip3` installed on your system.

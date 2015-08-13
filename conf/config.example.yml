@@ -1,0 +1,9 @@
+## IRC settings
+server: irc.example.com
+port: 6667
+nick: AideBot
+realname: AideBot
+# NickServ pass (bot nick should be registered)
+nspass: coolpass
+# Be sure to put the channel name inside quotes
+channel: "#AideBot"
