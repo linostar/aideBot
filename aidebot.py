@@ -95,13 +95,24 @@ class AideBot(CustomSingleServerIRCBot):
 			self.execute(e.source.nick, command)
 
 	def on_privmsg(self, c, e):
-		detected = re.match(r"\!(help(\s+.+)?)", e.arguments[0], re.IGNORECASE)
+		detected = re.match(r"({}(\s+.+)?)".format(self.escape_string(self.config['helpcommand'])),
+			e.arguments[0], re.IGNORECASE)
 		if detected:
 			if not detected.group(2):
 				command = ""
 			else:
 				command = detected.group(2).strip().lower()
 			self.execute(e.source.nick, command)
+
+	def escape_string(self, string):
+		return string.translate(str.maketrans({
+			"-": "\-",
+			"!": "\!",
+			".": "\.",
+			"^": "\^",
+			"$": "\$",
+			"?": "\?",
+			}))
 
 	def execute(self, source, command):
 		if not command:
