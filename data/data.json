@@ -1,6 +1,8 @@
 {
 	"register": "For registering in the current round (or in a new round)",
 	"unregister": "For removing oneself from the current round",
+	"vampires": "Lists the vampires registered in the current round",
+	"zombies": "Lists the zombies registered in the current round",
 	"status": "Syntax: !status [player]. For checking the stats of a player, or yourself",
 	"attack": "Syntax: !attack player. For attacking enemies of the other type",
 	"heal": "Syntax: !heal player. For healing allies from the same type",
