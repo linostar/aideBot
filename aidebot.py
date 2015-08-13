@@ -105,7 +105,8 @@ class AideBot(CustomSingleServerIRCBot):
 
 	def execute(self, source, command):
 		if not command:
-			pass # return list of topics
+			self.connection.privmsg(source, "Help is available for the following topics/commands:")
+			self.connection.privmsg(source, ", ".join(sorted(self.data.topics.keys())))
 			return
 		first_space = command.find(" ")
 		if first_space == -1:
@@ -117,8 +118,14 @@ class AideBot(CustomSingleServerIRCBot):
 		if cmd in self.data.topics:
 			if isinstance(self.data.topics[cmd], dict):
 				if not args and args not in self.data.topics[cmd]:
-					self.connection.notice(source, "There is no help available for " +
-						"\x02{}\x02 without subcommands.".format(cmd))
+					subs = [cmd + " " + s for s in self.data.topics[cmd].keys()]
+					self.connection.notice(source, "There is only help available for " +
+						"\x02{}\x02.".format(", ".join(subs)))
+				elif not args and args in self.data.topics[cmd] and len(self.data.topics[cmd]) > 1:
+					subs = [cmd + " " + s for s in self.data.topics[cmd].keys() if s]
+					self.connection.privmsg(source, self.data.topics[cmd][args])
+					self.connection.privmsg(source, "There is also help available for " +
+						"\x02{}\x02.".format(", ".join(subs)))
 				elif args in self.data.topics[cmd]:
 					self.connection.privmsg(source, self.data.topics[cmd][args])
 				else:
