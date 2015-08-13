@@ -29,13 +29,13 @@ from aidelib import data_processing, flood_control
 
 
 class CustomConnection(irc.client.ServerConnection):
-	def privmsg(self, target, text):
-		flood_event = flood_control.FloodControl.get_event(1)
+	def privmsg(self, target, text, priority=1):
+		flood_event = flood_control.FloodControl.get_event(priority)
 		flood_event.wait()
 		super().privmsg(target, text)
 
-	def notice(self, target, text):
-		flood_event = flood_control.FloodControl.get_event(1)
+	def notice(self, target, text, priority=1):
+		flood_event = flood_control.FloodControl.get_event(priority)
 		flood_event.wait()
 		super().notice(target, text)
 
@@ -84,6 +84,51 @@ class AideBot(CustomSingleServerIRCBot):
 		if self.config['nspass']:
 			self.connection.privmsg("nickserv", "identify {}".format(self.config['nspass']))
 		c.join(self.channel)
+
+	def on_pubmsg(self, c, e):
+		detected = re.match(r"\!(help(\s+.+)?)", e.arguments[0], re.IGNORECASE)
+		if detected:
+			if not detected.group(2):
+				command = ""
+			else:
+				command = detected.group(2).strip().lower()
+			self.execute(e.source.nick, command)
+
+	def on_privmsg(self, c, e):
+		detected = re.match(r"\!(help(\s+.+)?)", e.arguments[0], re.IGNORECASE)
+		if detected:
+			if not detected.group(2):
+				command = ""
+			else:
+				command = detected.group(2).strip().lower()
+			self.execute(e.source.nick, command)
+
+	def execute(self, source, command):
+		if not command:
+			pass # return list of topics
+			return
+		first_space = command.find(" ")
+		if first_space == -1:
+			cmd = command
+			args = ""
+		else:
+			cmd = command[0:first_space]
+			args = command[first_space:].lstrip()
+		if cmd in self.data.topics:
+			if isinstance(self.data.topics[cmd], dict):
+				if not args and args not in self.data.topics[cmd]:
+					self.connection.notice(source, "There is no help available for " +
+						"\x02{}\x02 without subcommands.".format(cmd))
+				elif args in self.data.topics[cmd]:
+					self.connection.privmsg(source, self.data.topics[cmd][args])
+				else:
+					self.connection.notice(source, ("There is no help available for \x02{}" +
+						" {}\x02.").format(cmd, args))
+			else:
+				self.connection.privmsg(source, self.data.topics[cmd])
+		else:
+			self.connection.notice(source, "There is no help available for \x02{}\x02."
+				.format(cmd))
 
 
 def main():
