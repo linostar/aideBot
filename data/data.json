@@ -1,35 +1,36 @@
 {
-	"register": "For registering in the current round (or in a new round)",
-	"unregister": "For removing oneself from the current round",
-	"vampires": "Lists the vampires registered in the current round",
-	"zombies": "Lists the zombies registered in the current round",
+	"register": "Syntax: !register. For registering in the current round (or in a new round)",
+	"unregister": "Syntax: !unregister. For removing oneself from the current round",
+	"vampires": "Syntax: !vampires. Lists the vampires registered in the current round",
+	"zombies": "Syntax: !zombies. Lists the zombies registered in the current round",
 	"status": "Syntax: !status [player]. For checking the stats of a player, or yourself",
 	"attack": "Syntax: !attack player. For attacking enemies of the other type",
 	"heal": "Syntax: !heal player. For healing allies from the same type",
 	"ambush": "Syntax: !ambush player1 player2. For attacking two enemies simultaneously",
-	"challenge": "For attacking the enemy's leader (Dracula or Zombilo) if he's present in the battlefield",
+	"challenge": "Syntax: !challenge. For attacking the enemy's leader (Dracula or Zombilo) if he's present in the battlefield",
 	"auto": {
 		"": "Used for displaying/saving player settings",
-		"register": "Syntax: !auto register off|on. It allows auto registering if turned on",
-		"attack": "Syntax: !auto attack off|lowest|highest. It allows auto-attacking the enemy with lowest/highest HP once per hour",
-		"heal": "Syntax: !auto heal off|lowest|highest. It allows auto-healing the ally with lowest/highest HP once per hour",
-		"search": "Syntax: !auto search off|on. It allows auto searching for items once per hour if turned on"
+		"register": "Syntax: !auto register [off|on]. It allows auto registering if turned on",
+		"attack": "Syntax: !auto attack [off|lowest|highest]. It allows auto-attacking the enemy with lowest/highest HP once per hour",
+		"heal": "Syntax: !auto heal [off|lowest|highest]. It allows auto-healing the ally with lowest/highest HP once per hour",
+		"search": "Syntax: !auto search [off|on]. It allows auto searching for items once per hour if turned on",
+		"chest": "Syntax: !auto chest [off|open|drop]. It allows auto opening or dropping of chests right after they are obtained"
 	},
-	"search": "For finding a random item. The chance is 25%",
+	"search": "Syntax: !search. For finding a random item. The chance is 25%",
 	"use": "Syntax: !use number [target]. It will use the specified item on the player itself or on the target",
 	"drop": "Syntax: !drop number. It will drop the specified item from the inventory",
-	"inventory": "It will list all the items in the player inventory (max. capacity is 3)",
+	"inventory": "Syntax: !inventory. It will list all the items in the player inventory (max. capacity is 3)",
 	"chest": {
-		"open": "It will open the chest and add the ore inside to the forge, unless it contains a bomb",
-		"drop": "It will drop the chest without opening it"
+		"open": "Syntax: !chest open. It will open the chest and add the ore inside to the forge, unless it contains a bomb",
+		"drop": "Syntax: !chest drop. It will drop the chest without opening it"
 	},
 	"forge": {
-		"": "It will list the contents of the forge (max. capacity is 4)",
+		"": "Syntax: !forge. It will list the contents of the forge (max. capacity is 4)",
 		"drop": "Syntax: !forge drop number. It will drop the specified ore from the forge"
 	},
 	"upgrade": {
-		"sword": "It will upgrade the sword if the nessary ores are in the forge",
-		"armor": "It will upgrade the armor if the nessary ores are in the forge"
+		"sword": "Syntax: !upgrade sword. It will upgrade the sword if the nessary ores are in the forge",
+		"armor": "Syntax: !upgrade armor. It will upgrade the armor if the nessary ores are in the forge"
 	},
 	"Settings": "See !help auto",
 	"Scoring": "The player will get 1 score point for healing, 2 for successful attack, 3 for successful ambush, 5 for finishing off an enemy, and 10 for a successful challenge",
@@ -38,7 +39,7 @@
 	"Stats": {
 		"HP": "Health Points (they have no maximum limit per player)",
 		"MP": "Those points represent how many remaining actions the player can do in the current hour",
-		"Score": "Score points awarded for healings and successful attacks",
+		"Score": "Score points awarded for healings and successful attacks. See '!help scoring' for more info",
 		"Bonus": "If present, it will give a positive or negative boost to the player's attack/defense",
 		"Equipment": "Sword and armor equipped by the player"
 	},
